@@ -63,5 +63,5 @@ interface Hoa_Visitor_Visit {
      * @param   mixed   $element    Element to visit.
      * @return  mixed
      */
-    public function visit ( $element );
+    public function visit ( Hoa_Visitor_Element $element );
 }
