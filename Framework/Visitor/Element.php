@@ -63,7 +63,8 @@ interface Hoa_Visitor_Element {
      *
      * @access  public
      * @param   Hoa_Visitor_Visit  $visitor    Visitor.
+     * @param   mixed              $handle     Handle (refence).
      * @return  mixed
      */
-    public function accept ( Hoa_Visitor_Visit $visitor );
+    public function accept ( Hoa_Visitor_Visit $visitor, &$handle = null );
 }
