@@ -204,6 +204,27 @@ class Hoa_Visitor_Registry implements Hoa_Visitor_Visit {
     }
 
     /**
+     * Visit a specific entry.
+     *
+     * @access  public
+     * @param   string             $entry      Entry name, i.e. element name to
+     *                                         visit.
+     * @param   Hoa_Visitor_Visit  $element    Element to visit.
+     * @param   mixed              $handle     Handle (reference).
+     * @return  mixed
+     * @throw   Hoa_Visitor_Exception
+     */
+    public function visitEntry ( $entry, Hoa_Visitor_Element $element,
+                                 &$handle = null ) {
+
+        if(false === $foo = $this->getEntry($entry))
+            throw new Hoa_Visitor_Exception(
+                'Entry %s does not exist.', 6, $entry);
+
+        return $foo[0]->$foo[1]($element, $handle);
+    }
+
+    /**
      * Visit an element.
      *
      * @access  public
@@ -214,18 +235,17 @@ class Hoa_Visitor_Registry implements Hoa_Visitor_Visit {
      */
     public function visit ( Hoa_Visitor_Element $element, &$handle = null ) {
 
-        $handle       = null;
+        $foo          = null;
         $elementClass = get_class($element);
 
         foreach($this->getEntries() as $entry => $callback)
-            if(false !== $handle = $this->getEntry($entry))
-                if($elementClass == $entry)
-                    return $callback[0]->$callback[1]($element, $handle);
+            if($elementClass == $entry)
+                return $callback[0]->$callback[1]($element, $handle);
 
-        if(false !== $handle = $this->getDefaultEntry())
-            return $callback[0]->$callback[1]($element, $handle);
+        if(false !== $foo = $this->getDefaultEntry())
+            return $foo[0]->$foo[1]($element, $handle);
 
         throw new Hoa_Visitor_Exception(
-            'No entry matches element %s.', 6, get_class($element));
+            'No entry matches element %s.', 7, get_class($element));
     }
 }
