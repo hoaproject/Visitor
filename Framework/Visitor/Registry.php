@@ -210,18 +210,20 @@ class Hoa_Visitor_Registry implements Hoa_Visitor_Visit {
      * @param   string             $entry      Entry name, i.e. element name to
      *                                         visit.
      * @param   Hoa_Visitor_Visit  $element    Element to visit.
-     * @param   mixed              $handle     Handle (reference).
+     * @param   mixed              &$handle    Handle (reference).
+     * @param   mixed              $eldnah     Handle (not reference).
      * @return  mixed
      * @throw   Hoa_Visitor_Exception
      */
     public function visitEntry ( $entry, Hoa_Visitor_Element $element,
-                                 &$handle = null ) {
+                                 &$handle = null,
+                                  $eldnah = null ) {
 
         if(false === $foo = $this->getEntry($entry))
             throw new Hoa_Visitor_Exception(
                 'Entry %s does not exist.', 6, $entry);
 
-        return $foo[0]->$foo[1]($element, $handle);
+        return $foo[0]->$foo[1]($element, $handle, $eldnah);
     }
 
     /**
@@ -229,21 +231,24 @@ class Hoa_Visitor_Registry implements Hoa_Visitor_Visit {
      *
      * @access  public
      * @param   Hoa_Visitor_Visit  $element    Element to visit.
-     * @param   mixed              $handle     Handle (reference).
+     * @param   mixed              &$handle    Handle (reference).
+     * @param   mixed              $eldnah     Handle (not reference).
      * @return  mixed
      * @throw   Hoa_Visitor_Exception
      */
-    public function visit ( Hoa_Visitor_Element $element, &$handle = null ) {
+    public function visit ( Hoa_Visitor_Element $element,
+                            &$handle = null,
+                             $eldnah = null ) {
 
         $foo          = null;
         $elementClass = get_class($element);
 
         foreach($this->getEntries() as $entry => $callback)
             if($elementClass == $entry)
-                return $callback[0]->$callback[1]($element, $handle);
+                return $callback[0]->$callback[1]($element, $handle, $eldnah);
 
         if(false !== $foo = $this->getDefaultEntry())
-            return $foo[0]->$foo[1]($element, $handle);
+            return $foo[0]->$foo[1]($element, $handle, $eldnah);
 
         throw new Hoa_Visitor_Exception(
             'No entry matches element %s.', 7, get_class($element));

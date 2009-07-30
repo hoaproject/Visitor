@@ -64,7 +64,10 @@ interface Hoa_Visitor_Element {
      * @access  public
      * @param   Hoa_Visitor_Visit  $visitor    Visitor.
      * @param   mixed              &$handle    Handle (refence).
+     * @param   mixed              $eldnah     Handle (no reference).
      * @return  mixed
      */
-    public function accept ( Hoa_Visitor_Visit $visitor, &$handle = null );
+    public function accept ( Hoa_Visitor_Visit $visitor,
+                             &$handle = null,
+                              $eldnah = null );
 }
