@@ -78,7 +78,7 @@ class Hoa_Visitor_Registry implements Hoa_Visitor_Visit {
      *
      * @const bool
      */
-    const DONOT_OVERWRITE = false;
+    const DO_NOT_OVERWRITE = false;
 
     /**
      * Registry.
@@ -103,7 +103,7 @@ class Hoa_Visitor_Registry implements Hoa_Visitor_Visit {
      */
     public function addEntry ( $entry,
                                Array $callback,
-                               $overwrite = self::DONOT_OVERWRITE ) {
+                               $overwrite = self::DO_NOT_OVERWRITE ) {
 
         if(!isset($callback[0]))
             throw new Hoa_Visitor_Exception(
@@ -129,8 +129,8 @@ class Hoa_Visitor_Registry implements Hoa_Visitor_Visit {
                 'Method %s does not exist on object %s.',
                 4, array($callback[1], get_class($callback[0])));
 
-        if(   true                  === $this->entryExists($entry)
-           && self::DONOT_OVERWRITE === $overwrite)
+        if(   true                   === $this->entryExists($entry)
+           && self::DO_NOT_OVERWRITE === $overwrite)
             throw new Hoa_Visitor_Exception(
                 'Entry %s already exists.', 5, $entry);
 
@@ -215,7 +215,7 @@ class Hoa_Visitor_Registry implements Hoa_Visitor_Visit {
      * @return  mixed
      * @throw   Hoa_Visitor_Exception
      */
-    public function visitEntry ( $entry, Hoa_Visitor_Element $element,
+    public function visitEntry (  $entry, Hoa_Visitor_Element $element,
                                  &$handle = null,
                                   $eldnah = null ) {
 
