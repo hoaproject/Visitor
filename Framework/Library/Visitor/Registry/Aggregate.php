@@ -24,44 +24,42 @@
  * You should have received a copy of the GNU General Public License
  * along with HOA Open Accessibility; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
- *
- *
- * @category    Framework
- * @package     Hoa_Visitor
- * @subpackage  Hoa_Visitor_Registry_Aggregate
- *
  */
 
-/**
- * Hoa_Visitor_Registry_Exception
- */
-import('Visitor.Registry.Exception');
+namespace {
+
+from('Hoa')
 
 /**
- * Hoa_Visitor_Registry
+ * \Hoa\Visitor\Registry\Exception
  */
-import('Visitor.Registry');
+-> import('Visitor.Registry.Exception')
 
 /**
- * Class Hoa_Visitor_Registry_Aggregate.
+ * \Hoa\Visitor\Registry
+ */
+-> import('Visitor.Registry.~');
+
+}
+
+namespace Hoa\Visitor\Registry {
+
+/**
+ * Class \Hoa\Visitor\Registry\Aggregate.
  *
  * Represent an aggregate entry in the registry, i.e. an aggregate visitor part.
  *
- * @author      Ivan ENDERLIN <ivan.enderlin@hoa-project.net>
- * @copyright   Copyright (c) 2007, 2010 Ivan ENDERLIN.
- * @license     http://gnu.org/licenses/gpl.txt GNU GPL
- * @since       PHP 5
- * @version     0.1
- * @package     Hoa_Visitor
- * @subpackage  Hoa_Visitor_Registry_Aggregate
+ * @author     Ivan ENDERLIN <ivan.enderlin@hoa-project.net>
+ * @copyright  Copyright (c) 2007, 2010 Ivan ENDERLIN.
+ * @license    http://gnu.org/licenses/gpl.txt GNU GPL
  */
 
-class Hoa_Visitor_Registry_Aggregate {
+class Aggregate {
 
     /**
      * The registry.
      *
-     * @var Hoa_Visitor_Registry object
+     * @var \Hoa\Visitor\Registry object
      */
     protected $_registry = null;
 
@@ -71,10 +69,10 @@ class Hoa_Visitor_Registry_Aggregate {
      * Constructor. Set the registry.
      *
      * @access  public
-     * @param   Hoa_Visitor_Registry  $registry    Registry.
+     * @param   \Hoa\Visitor\Registry  $registry    Registry.
      * @return  void
      */
-    public function __construct ( Hoa_Visitor_Registry $registry ) {
+    public function __construct ( \Hoa\Visitor\Registry $registry ) {
 
         $this->setRegistry($registry);
 
@@ -85,10 +83,10 @@ class Hoa_Visitor_Registry_Aggregate {
      * Set the registry.
      *
      * @access  protected
-     * @param   Hoa_Visitor_Registry  $registry    Registry.
-     * @return  Hoa_Visitor_Registry
+     * @param   \Hoa\Visitor\Registry  $registry    Registry.
+     * @return  \Hoa\Visitor\Registry
      */
-    protected function setRegistry ( Hoa_Visitor_Registry $registry ) {
+    protected function setRegistry ( \Hoa\Visitor\Registry $registry ) {
 
         $old             = $this->_registry;
         $this->_registry = $registry;
@@ -100,10 +98,12 @@ class Hoa_Visitor_Registry_Aggregate {
      * Get the registry, i.e. the visitor.
      *
      * @access  public
-     * @return  Hoa_Visitor_Registry
+     * @return  \Hoa\Visitor\Registry
      */
     public function getVisitor ( ) {
 
         return $this->_registry;
     }
+}
+
 }

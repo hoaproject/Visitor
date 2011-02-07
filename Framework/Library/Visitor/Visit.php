@@ -24,43 +24,45 @@
  * You should have received a copy of the GNU General Public License
  * along with HOA Open Accessibility; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
- *
- *
- * @category    Framework
- * @package     Hoa_Visitor_Visit
- *
  */
 
-/**
- * Hoa_Visitor_Exception
- */
-import('Visitor.Exception');
+namespace {
+
+from('Hoa')
 
 /**
- * Interface Hoa_Visitor_Visit.
+ * \Hoa\Visitor\Exception
+ */
+-> import('Visitor.Exception');
+
+}
+
+namespace Hoa\Visitor {
+
+/**
+ * Interface \Hoa\Visitor\Visit.
  *
  * Visitor interface.
  *
- * @author      Ivan ENDERLIN <ivan.enderlin@hoa-project.net>
- * @copyright   Copyright (c) 2007, 2010 Ivan ENDERLIN.
- * @license     http://gnu.org/licenses/gpl.txt GNU GPL
- * @since       PHP 5
- * @version     0.1
- * @package     Hoa_Visitor_Visit
+ * @author     Ivan ENDERLIN <ivan.enderlin@hoa-project.net>
+ * @copyright  Copyright (c) 2007, 2010 Ivan ENDERLIN.
+ * @license    http://gnu.org/licenses/gpl.txt GNU GPL
  */
 
-interface Hoa_Visitor_Visit {
+interface Visit {
 
     /**
      * Visit an element.
      *
      * @access  public
-     * @param   Hoa_Visitor_Element  $element    Element to visit.
-     * @param   mixed                &$handle    Handle (reference).
-     * @param   mixed                $eldnah     Handle (not reference).
+     * @param   \Hoa\Visitor\Element  $element    Element to visit.
+     * @param   mixed                 &$handle    Handle (reference).
+     * @param   mixed                 $eldnah     Handle (not reference).
      * @return  mixed
      */
-    public function visit ( Hoa_Visitor_Element $element,
+    public function visit ( \Hoa\Visitor\Element $element,
                             &$handle = null,
                              $eldnah = null );
+}
+
 }

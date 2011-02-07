@@ -24,31 +24,31 @@
  * You should have received a copy of the GNU General Public License
  * along with HOA Open Accessibility; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
- *
- *
- * @category    Framework
- * @package     Hoa_Visitor
- * @subpackage  Hoa_Visitor_Registry_Exception
- *
  */
+
+namespace {
+
+from('Hoa')
 
 /**
- * Hoa_Visitor_Exception
+ * \Hoa\Visitor\Exception
  */
-import('Visitor.Exception');
+-> import('Visitor.Exception');
+
+}
+
+namespace Hoa\Visitor\Registry {
 
 /**
- * Class Hoa_Visitor_Registry_Exception.
+ * Class \Hoa\Visitor\Registry\Exception.
  *
- * Extending the Hoa_Visitor_Exception class.
+ * Extending the \Hoa\Visitor\Exception class.
  *
- * @author      Ivan ENDERLIN <ivan.enderlin@hoa-project.net>
- * @copyright   Copyright (c) 2007, 2010 Ivan ENDERLIN.
- * @license     http://gnu.org/licenses/gpl.txt GNU GPL
- * @since       PHP 5
- * @version     0.1
- * @package     Hoa_Visitor
- * @subpackage  Hoa_Visitor_Registry_Exception
+ * @author     Ivan ENDERLIN <ivan.enderlin@hoa-project.net>
+ * @copyright  Copyright (c) 2007, 2010 Ivan ENDERLIN.
+ * @license    http://gnu.org/licenses/gpl.txt GNU GPL
  */
 
-class Hoa_Visitor_Registry_Exception extends Hoa_Visitor_Exception { }
+class Exception extends \Hoa\Visitor\Exception { }
+
+}

@@ -24,42 +24,40 @@
  * You should have received a copy of the GNU General Public License
  * along with HOA Open Accessibility; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
- *
- *
- * @category    Framework
- * @package     Hoa_Visitor
- * @subpackage  Hoa_Visitor_Registry
- *
  */
 
-/**
- * Hoa_Visitor_Exception
- */
-import('Visitor.Exception');
+namespace {
+
+from('Hoa')
 
 /**
- * Hoa_Visitor_Visit
+ * \Hoa\Visitor\Registry\Exception
  */
-import('Visitor.Visit');
+-> import('Visitor.Registry.Exception')
 
 /**
- * Class Hoa_Visitor_Registry.
+ * \Hoa\Visitor\Visit
+ */
+-> import('Visitor.Visit');
+
+}
+
+namespace Hoa\Visitor\Registry {
+
+/**
+ * Class \Hoa\Visitor\Registry.
  *
  * A registry of visitor.
  * It can register objects and methods to treat differents entries/elements. It
  * allows user to write visitor in many files and objects or to mixes many visitors
  * for one visit.
  *
- * @author      Ivan ENDERLIN <ivan.enderlin@hoa-project.net>
- * @copyright   Copyright (c) 2007, 2010 Ivan ENDERLIN.
- * @license     http://gnu.org/licenses/gpl.txt GNU GPL
- * @since       PHP 5
- * @version     0.1
- * @package     Hoa_Visitor
- * @subpackage  Hoa_Visitor_Registry
+ * @author     Ivan ENDERLIN <ivan.enderlin@hoa-project.net>
+ * @copyright  Copyright (c) 2007, 2010 Ivan ENDERLIN.
+ * @license    http://gnu.org/licenses/gpl.txt GNU GPL
  */
 
-class Hoa_Visitor_Registry implements Hoa_Visitor_Visit {
+class Registry implements \Hoa\Visitor\Visit {
 
     /**
      * Overwrite an entry if already exists.
@@ -78,7 +76,7 @@ class Hoa_Visitor_Registry implements Hoa_Visitor_Visit {
     /**
      * Registry.
      *
-     * @var Hoa_Visitor_Registry array
+     * @var \Hoa\Visitor\Registry array
      */
     protected $_registry = array();
 
@@ -94,39 +92,39 @@ class Hoa_Visitor_Registry implements Hoa_Visitor_Visit {
      * @param   bool    $overwrite   Overwrite an entry if already exists, given
      *                               by constants self::*OVERWRITE.
      * @return  void
-     * @throw   Hoa_Visitor_Exception
+     * @throw   \Hoa\Visitor\Registry\Exception
      */
     public function addEntry ( $entry,
                                Array $callback,
                                $overwrite = self::DO_NOT_OVERWRITE ) {
 
         if(!isset($callback[0]))
-            throw new Hoa_Visitor_Exception(
+            throw newException(
                 'An entry in the registry must be an array with two entries : ' .
                 'object (object) and method (string).', 0);
 
         if(!is_object($callback[0]))
-            throw new Hoa_Visitor_Exception(
+            throw new Exception(
                 'Cannot call a method on a non-object, given %s.',
                 1, gettype($callback[0]));
 
         if(!isset($callback[1]))
-            throw new Hoa_Visitor_Exception(
+            throw new Exception(
                 'An entry in the registry must be an array with two entries : ' .
                 'object (object) and method (string). Only object is given.', 2);
 
         if(!is_string($callback[1]))
-            throw new Hoa_Visitor_Exception(
+            throw new Exception(
                 'Method must be a string, given %s.', 3, gettype($callback[1]));
 
         if(!method_exists($callback[0], $callback[1]))
-            throw new Hoa_Visitor_Exception(
+            throw new Exception(
                 'Method %s does not exist on object %s.',
                 4, array($callback[1], get_class($callback[0])));
 
         if(   true                   === $this->entryExists($entry)
            && self::DO_NOT_OVERWRITE === $overwrite)
-            throw new Hoa_Visitor_Exception(
+            throw new Exception(
                 'Entry %s already exists.', 5, $entry);
 
         $this->_registry[$entry] = $callback;
@@ -204,18 +202,18 @@ class Hoa_Visitor_Registry implements Hoa_Visitor_Visit {
      * @access  public
      * @param   string             $entry      Entry name, i.e. element name to
      *                                         visit.
-     * @param   Hoa_Visitor_Visit  $element    Element to visit.
+     * @param   \Hoa\Visitor\Visit  $element    Element to visit.
      * @param   mixed              &$handle    Handle (reference).
      * @param   mixed              $eldnah     Handle (not reference).
      * @return  mixed
-     * @throw   Hoa_Visitor_Exception
+     * @throw   \Hoa\Visitor\Exception
      */
-    public function visitEntry (  $entry, Hoa_Visitor_Element $element,
+    public function visitEntry (  $entry, \Hoa\Visitor\Element $element,
                                  &$handle = null,
                                   $eldnah = null ) {
 
         if(false === $foo = $this->getEntry($entry))
-            throw new Hoa_Visitor_Exception(
+            throw new Exception(
                 'Entry %s does not exist.', 6, $entry);
 
         return $foo[0]->$foo[1]($element, $handle, $eldnah);
@@ -225,13 +223,13 @@ class Hoa_Visitor_Registry implements Hoa_Visitor_Visit {
      * Visit an element.
      *
      * @access  public
-     * @param   Hoa_Visitor_Visit  $element    Element to visit.
+     * @param   \Hoa\Visitor\Visit  $element    Element to visit.
      * @param   mixed              &$handle    Handle (reference).
      * @param   mixed              $eldnah     Handle (not reference).
      * @return  mixed
-     * @throw   Hoa_Visitor_Exception
+     * @throw   \Hoa\Visitor\Exception
      */
-    public function visit ( Hoa_Visitor_Element $element,
+    public function visit ( \Hoa\Visitor\Element $element,
                             &$handle = null,
                              $eldnah = null ) {
 
@@ -245,7 +243,9 @@ class Hoa_Visitor_Registry implements Hoa_Visitor_Visit {
         if(false !== $foo = $this->getDefaultEntry())
             return $foo[0]->$foo[1]($element, $handle, $eldnah);
 
-        throw new Hoa_Visitor_Exception(
+        throw new Exception(
             'No entry matches element %s.', 7, get_class($element));
     }
+}
+
 }
