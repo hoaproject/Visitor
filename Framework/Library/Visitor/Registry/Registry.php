@@ -62,7 +62,7 @@ namespace Hoa\Visitor\Registry {
  *
  * @author     Ivan ENDERLIN <ivan.enderlin@hoa-project.net>
  * @copyright  Copyright (c) 2007, 2011 Ivan ENDERLIN.
- * @license    http://gnu.org/licenses/gpl.txt GNU GPL
+ * @license    New BSD License
  */
 
 class Registry implements \Hoa\Visitor\Visit {
