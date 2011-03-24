@@ -60,8 +60,8 @@ namespace Hoa\Visitor\Registry {
  * allows user to write visitor in many files and objects or to mixes many visitors
  * for one visit.
  *
- * @author     Ivan ENDERLIN <ivan.enderlin@hoa-project.net>
- * @copyright  Copyright © 2007-2011 Ivan ENDERLIN.
+ * @author     Ivan Enderlin <ivan.enderlin@hoa-project.net>
+ * @copyright  Copyright © 2007-2011 Ivan Enderlin.
  * @license    New BSD License
  */
 

@@ -57,8 +57,8 @@ namespace Hoa\Visitor\Registry {
  *
  * Represent an aggregate entry in the registry, i.e. an aggregate visitor part.
  *
- * @author     Ivan ENDERLIN <ivan.enderlin@hoa-project.net>
- * @copyright  Copyright © 2007-2011 Ivan ENDERLIN.
+ * @author     Ivan Enderlin <ivan.enderlin@hoa-project.net>
+ * @copyright  Copyright © 2007-2011 Ivan Enderlin.
  * @license    New BSD License
  */
 
