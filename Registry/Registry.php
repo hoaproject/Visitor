@@ -257,3 +257,12 @@ class Registry implements \Hoa\Visitor\Visit {
 }
 
 }
+
+namespace {
+
+/**
+ * Flex entity.
+ */
+Hoa\Core\Consistency::flexEntity('Hoa\Visitor\Registry\Registry');
+
+}
