@@ -24,10 +24,6 @@
         "hoa/core": "dev-master"
     },
     "minimum-stability": "dev",
-    "target-dir": "Hoa/Visitor",
-    "autoload": {
-        "psr-0": {
-            "Hoa\\Visitor": "."
-        }
-    }
+    "target-dir"       : "Hoa/Visitor",
+    "autoload"         : { "psr-0": { "Hoa\\Visitor": "." } }
 }
