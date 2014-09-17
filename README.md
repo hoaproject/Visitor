@@ -7,6 +7,23 @@ Moreover, Hoa aims at being a bridge between industrial and research worlds.
 
 This library provides interfaces to apply the visitor pattern.
 
+## Installation
+
+With [Composer](http://getcomposer.org/), to include this library into your
+dependencies, you need to require
+[`hoa/visitor`](https://packagist.org/packages/hoa/visitor):
+
+```json
+{
+    "require": {
+        "hoa/visitor": "~0.0"
+    }
+}
+```
+
+Please, read the website to [get more informations about how to
+install](http://hoa-project.net/Source.html).
+
 ## Quick usage
 
 We propose to explain the basis of this library. We have two entities: an
