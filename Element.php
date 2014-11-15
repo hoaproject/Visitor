@@ -34,18 +34,7 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-namespace {
-
-from('Hoa')
-
-/**
- * \Hoa\Visitor\Exception
- */
--> import('Visitor.Exception');
-
-}
-
-namespace Hoa\Visitor {
+namespace Hoa\Visitor;
 
 /**
  * Interface \Hoa\Visitor\Element.
@@ -68,9 +57,7 @@ interface Element {
      * @param   mixed               $eldnah     Handle (no reference).
      * @return  mixed
      */
-    public function accept ( \Hoa\Visitor\Visit $visitor,
+    public function accept ( Visit $visitor,
                              &$handle = null,
                               $eldnah = null );
-}
-
 }

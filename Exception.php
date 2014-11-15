@@ -34,7 +34,9 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-namespace Hoa\Visitor {
+namespace Hoa\Visitor;
+
+use Hoa\Core;
 
 /**
  * Class \Hoa\Visitor\Exception.
@@ -46,6 +48,4 @@ namespace Hoa\Visitor {
  * @license    New BSD License
  */
 
-class Exception extends \Hoa\Core\Exception { }
-
-}
+class Exception extends Core\Exception { }
