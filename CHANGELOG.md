@@ -1,3 +1,9 @@
+# 2.17.01.16
+
+  * Quality: Happy new year! (Alexis von Glasow, 2017-01-09T21:37:12+01:00)
+  * Documentation: New `README.md` file. (Ivan Enderlin, 2016-10-19T16:38:45+02:00)
+  * Documentation: Update `support` properties. (Ivan Enderlin, 2016-10-11T08:49:14+02:00)
+
 # 2.16.01.11
 
   * Quality: Drop PHP5.4. (Ivan Enderlin, 2016-01-11T09:15:27+01:00)
