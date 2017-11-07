@@ -23,6 +23,7 @@
         "source": "https://central.hoa-project.net/Resource/Library/Visitor"
     },
     "require": {
+        "php"            : ">=7.1",
         "hoa/consistency": "~1.0"
     },
     "require-dev": {
@@ -30,7 +31,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Hoa\\Visitor\\": "."
+            "Hoa\\Visitor\\"      : "Source",
+            "Hoa\\Visitor\\Test\\": "Test"
         }
     },
     "extra": {
