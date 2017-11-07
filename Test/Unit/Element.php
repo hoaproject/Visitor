@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * Hoa
  *
@@ -37,22 +39,20 @@
 namespace Hoa\Visitor\Test\Unit;
 
 use Hoa\Test;
+use Hoa\Visitor as LUT;
 
 /**
  * Class \Hoa\Visitor\Test\Unit\Element.
  *
  * Test suite of the interface.
- *
- * @copyright  Copyright © 2007-2017 Hoa community
- * @license    New BSD License
  */
 class Element extends Test\Unit\Suite
 {
-    public function case_interface()
+    public function case_interface(): void
     {
         $this
             ->when($result = new \Mock\Hoa\Visitor\Element())
                 ->object($result)
-                    ->isInstanceOf('Hoa\Visitor\Element');
+                    ->isInstanceOf(LUT\Element::class);
     }
 }

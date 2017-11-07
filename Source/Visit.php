@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * Hoa
  *
@@ -40,19 +42,11 @@ namespace Hoa\Visitor;
  * Interface \Hoa\Visitor\Visit.
  *
  * Visitor interface.
- *
- * @copyright  Copyright © 2007-2017 Hoa community
- * @license    New BSD License
  */
 interface Visit
 {
     /**
      * Visit an element.
-     *
-     * @param   \Hoa\Visitor\Element  $element    Element to visit.
-     * @param   mixed                 &$handle    Handle (reference).
-     * @param   mixed                 $eldnah     Handle (not reference).
-     * @return  mixed
      */
     public function visit(Element $element, &$handle = null, $eldnah = null);
 }
