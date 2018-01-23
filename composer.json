@@ -24,10 +24,10 @@
     },
     "require": {
         "php"            : ">=7.1",
-        "hoa/consistency": "~1.0"
+        "hoa/consistency": "dev-master"
     },
     "require-dev": {
-        "hoa/test": "~2.0"
+        "hoa/test": "dev-master"
     },
     "autoload": {
         "psr-4": {
