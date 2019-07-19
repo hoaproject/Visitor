@@ -28,6 +28,9 @@ sudo: false
 env:
   global:
     - secure: "AAAAB3NzaC1yc2EAAAADAQABAAAAgQCt5p8gJx93Zyjy2EjIKWFPXgk76jdtrgAKPqdttMU+JoxINS40s8o/L0g0iJHy+ZXZ+AxmGQdAovJw70LBRzLV6IgRcAkZCfxwbh+H5kRV97WMfIEDnUXfZazZ5sXkmO/u9cVBYM7jZhcmdmlignNEh0v6qoFABwQdYHauymlR9w=="
+    # add composer's global bin directory to the path
+    - PATH: "$PATH:$HOME/.composer/vendor/bin"
+    - COMPOSER_HOME: "$HOME/.composer/"
 
 cache:
   directories:
