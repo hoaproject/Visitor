@@ -22,6 +22,7 @@
         "docs"  : "https://central.hoa-project.net/Documentation/Library/Visitor",
         "source": "https://central.hoa-project.net/Resource/Library/Visitor"
     },
+    "minimum-stability": "dev",
     "require": {
         "php"            : ">=7.1",
         "hoa/consistency": "dev-master"
