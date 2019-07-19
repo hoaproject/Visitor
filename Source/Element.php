@@ -48,5 +48,5 @@ interface Element
     /**
      * Accept a visitor.
      */
-    public function accept(Visit $visitor, &$handle = null, $eldnah  = null);
+    public function accept(Visit $visitor, &$handle = null, $eldnah  = null, array $context = []);
 }

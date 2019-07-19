@@ -48,5 +48,5 @@ interface Visit
     /**
      * Visit an element.
      */
-    public function visit(Element $element, &$handle = null, $eldnah = null);
+    public function visit(Element $element, &$handle = null, $eldnah = null, array $context = []);
 }
